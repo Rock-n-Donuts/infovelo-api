@@ -2,11 +2,19 @@ version: "3.4"
 services:
   api:
     build:
+      target: dev
       context: .
     volumes:
       - .:/var/www/html
     ports:
       - 8081:80
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: veloinfo
+      DB_USER: veloinfo
+      DB_PWD: veloinfo
+      RECPATCHA_SECRET: secret
   db:
     image: mysql
     volumes:
@@ -24,5 +32,13 @@ services:
       - ../veloinfo-web/:/app
     ports:
       - 3000:3000
+    environment:
+      REACT_APP_API_URL: /
+      REACT_APP_API_PROXY_URL: http://localhost:8081
+      REACT_APP_RECAPTCHA_V3_SITE_KEY: key
+      REACT_APP_JAWG_ID: ""
+      REACT_APP_JAWG_TOKEN: ""
+      API_IMPORT_KEY = ""volumes:
+  
 volumes:
   veloinfo-data:

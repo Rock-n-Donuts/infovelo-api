@@ -22,7 +22,7 @@ class DB
                 'mysql:host=' . $host . ';dbname=' . $dbName . ';charset=utf8mb4', $dbUser, $pwd
             );
         } catch (PDOException $e) {
-            die("error, please try again");
+            die("could not connect to the database".$e);
         }
     }
 

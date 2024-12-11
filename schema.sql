@@ -52,6 +52,8 @@ CREATE TABLE `contributions` (
   `issue_id` int unsigned DEFAULT NULL,
   `comment` text,
   `photo_path` varchar(256) DEFAULT NULL,
+  `photo_width` int unsigned DEFAULT NULL,
+  `photo_height` int unsigned DEFAULT NULL,
   `location` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `user_id` int unsigned NOT NULL,
   `name` varchar(256) DEFAULT NULL,
@@ -89,6 +91,7 @@ CREATE TABLE `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` varchar(256) DEFAULT NULL,
   `token` varchar(256) DEFAULT NULL,
+  `rq_ip`varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

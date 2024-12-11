@@ -20,6 +20,7 @@ if (!file_exists(__DIR__ . '/../.env')) {
 $dotenv->load();
 
 define("CUSTOM_LOGS", $_ENV['CUSTOM_LOGS'] ?? false);
+error_reporting(E_ERROR);
 
 /**
  * @todo refactor
